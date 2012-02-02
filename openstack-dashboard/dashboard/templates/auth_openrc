@@ -18,6 +18,7 @@ export NOVA_USERNAME={{user.username}}
 echo "Please enter your Nova Password: "
 read -s NOVA_PASSWORD
 export NOVA_PASSWORD
+export NOVA_API_KEY=$NOVA_PASSWORD
 
 # With the addition of Keystone, to use an openstack cloud you should
 # authenticate against keystone, which returns a **Token** and **Service
