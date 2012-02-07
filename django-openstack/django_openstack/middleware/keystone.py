@@ -22,6 +22,7 @@ from django.contrib import messages
 from django import shortcuts
 import openstackx
 import openstack
+import openstack.compute
 
 
 class User(object):
