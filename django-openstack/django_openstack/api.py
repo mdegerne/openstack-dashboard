@@ -286,13 +286,15 @@ def get_service_from_catalog(catalog, service_type):
     return None
 
 
-def url_for(request, service_type, admin=False):
+def url_for(request, service_type, admin=False, public=False):
     catalog = request.user.service_catalog
     service = get_service_from_catalog(catalog, service_type)
     if service:
         try:
             if admin:
                 return service['endpoints'][0]['adminURL']
+            elif public:
+                return service['endpoints'][0]['publicURL']
             else:
                 return service['endpoints'][0]['internalURL']
         except (IndexError, KeyError):
